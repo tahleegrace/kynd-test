@@ -1,7 +1,11 @@
 <template>
   <div class="mx-4 my-8 lg:m-16">
-    <div class="flex justify-center items-center h-screen">
+    <div class="flex justify-center items-center h-screen" v-show="!showingMembers">
       <button class="btn bg-emerald-800 hover:bg-emerald-700 active:emerald-900 text-white rounded-xl px-6 py-2" v-on:click="loadMembers">Load Members</button>
+    </div>
+
+    <div>
+      {{ visibleMembers.length }}
     </div>
   </div>
 </template>
@@ -10,6 +14,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { State, Action, Getter, Mutation } from 'vuex-class'
 import { mapActions } from 'vuex'
+import { Member } from '@/services/members';
 
 @Component({
   components: {
@@ -23,5 +28,8 @@ import { mapActions } from 'vuex'
 export default class MembersView extends Vue {
   @State('showingMembers')
   private readonly showingMembers!: boolean;
+
+  @State('visibleMembers')
+  private readonly visibleMembers!: Member[];
 }
 </script>
