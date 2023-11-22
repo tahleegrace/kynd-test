@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md rounded-2xl p-4 m-4">
+  <div class="shadow-md rounded-2xl p-4">
     <div class="flex items-center mb-4">
       <div class="p-4 mr-4 rounded-2xl rounded-full" :style="initialsBackground">
         {{  initials }}

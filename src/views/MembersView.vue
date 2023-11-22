@@ -4,7 +4,11 @@
       <button class="btn bg-emerald-800 hover:bg-emerald-700 active:emerald-900 text-white rounded-xl px-6 py-2" v-on:click="loadMembers">Load Members</button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3">
+    <div v-show="showingMembers" class="font-bold mb-4">
+      Found {{ totalMembers }} members with an average age of {{ averageAge }}.
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4" v-show="showingMembers">
       <MemberDisplay v-for="member in visibleMembers" :member="member"></MemberDisplay>
     </div>
   </div>
@@ -33,5 +37,13 @@ export default class MembersView extends Vue {
 
   @State('visibleMembers')
   private readonly visibleMembers!: Member[];
+
+  get totalMembers() {
+    return this.visibleMembers.length;
+  }
+
+  get averageAge() {
+    return Math.round(this.visibleMembers.reduce((acc, member) => acc + member.age, 0) / this.totalMembers);
+  }
 }
 </script>
