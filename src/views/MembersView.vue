@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-4 my-8 lg:m-16">
+  <div class="mx-4 my-8 lg:m-16 max-w-7xl">
     <div class="flex justify-center items-center h-screen" v-show="!showingMembers">
       <button class="btn bg-emerald-800 hover:bg-emerald-700 active:emerald-900 text-white rounded-xl px-6 py-2" v-on:click="loadMembers">Load Members</button>
     </div>
 
-    <div>
+    <div class="grid grid-cols-1 md:grid-cols-3">
       <MemberDisplay v-for="member in visibleMembers" :member="member"></MemberDisplay>
     </div>
   </div>
