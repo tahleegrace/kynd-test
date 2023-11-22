@@ -5,19 +5,21 @@
     </div>
 
     <div>
-      {{ visibleMembers.length }}
+      <MemberDisplay v-for="member in visibleMembers" :member="member"></MemberDisplay>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { State, Action, Getter, Mutation } from 'vuex-class'
-import { mapActions } from 'vuex'
+import { Component, Vue } from 'vue-property-decorator';
+import { State, Action, Getter, Mutation } from 'vuex-class';
+import { mapActions } from 'vuex';
 import { Member } from '@/services/members';
+import MemberDisplay from '../components/MemberDisplay.vue';
 
 @Component({
   components: {
+    MemberDisplay
   },
   methods: {
     ...mapActions([
