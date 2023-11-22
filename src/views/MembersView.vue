@@ -1,6 +1,8 @@
 <template>
   <div class="mx-4 my-8 lg:m-16">
-    This is the members view.
+    <div class="flex justify-center items-center h-screen">
+      <button class="btn bg-emerald-800 hover:bg-emerald-700 active:emerald-900 text-white rounded-xl px-6 py-2">Load Members</button>
+    </div>
   </div>
 </template>
 
